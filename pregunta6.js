@@ -21,6 +21,9 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const { body } = req;
+  if (database.find( u => u.id === body.id)){
+      res.status(500).json("Error al agregar el usuario, el usuario ya existe");
+  }
   database.push(body);
   const json = JSON.stringify(database);
   fs.writeFile("./data/users.json", json, "utf8", (err) => {
