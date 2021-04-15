@@ -3,7 +3,14 @@
 // si la longitud del array es < 3 se debe retornar undefined
 
 const greater3 = nums => {
-    
+    console.log(nums.sort((a,b) => b-a));
+    nums = nums.sort((a,b) => b-a);
+    nums = nums.filter((a,b) => {
+        return nums.indexOf(a) === b;
+    });
+    console.log(nums);
+    console.log(nums[2]);
+    return nums[2];
 }
 
 

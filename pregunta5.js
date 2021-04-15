@@ -20,3 +20,12 @@ const beers = [
     { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
 
+beers.forEach( beer => {
+  let { name, label } = beer;
+  let url = 'https://tecnoshare.sharepoint.com/sites/beer/' + label.split('/').reverse()[1] + '/';
+  url = url + name.split(" ").join("_") +'.png';
+  // console.log(url);
+  beer.label = url;
+})
+
+console.log(beers);
